@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 22 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 22 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 22 100% 50%;
+    --chart-1: 22 100% 50%;
+    --chart-2: 45 100% 60%;
+    --chart-3: 15 100% 45%;
+    --chart-4: 30 90% 55%;
+    --chart-5: 10 85% 40%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .text-rift {
+    color: #FF6B00;
+  }
+  .bg-rift {
+    background-color: #FF6B00;
+  }
+  .border-rift {
+    border-color: #FF6B00;
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.35), 0 0 40px rgba(255, 107, 0, 0.15);
+  }
+  .text-glow-orange {
+    text-shadow: 0 0 12px rgba(255, 107, 0, 0.6);
+  }
+
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(255, 107, 0, 0.25);
+  }
+
+  .bg-gradient-rift {
+    background: linear-gradient(135deg, #FF6B00 0%, #FF3D00 100%);
+  }
+
+  .bg-panel {
+    background-color: #121212;
+  }
+  .bg-panel-hi {
+    background-color: #1a1a1a;
+  }
+}
+
+::selection {
+  background-color: #FF6B00;
+  color: #fff;
+}
