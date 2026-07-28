@@ -6,11 +6,12 @@ import PriceChart from '@/components/PriceChart'
 import { getCardById, DOMAINS, RARITIES, getSetById, CARDS } from '@/lib/mock/data'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, Plus, Minus, Store } from 'lucide-react'
+import { ArrowLeft, Plus, Minus, Store, Palette } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { readCollection, setInCollection } from '@/lib/collectionStore'
 import { toast } from 'sonner'
 import CardThumbnail from '@/components/CardThumbnail'
+import RulesText from '@/components/RulesText'
 
 export default function CardDetailPage() {
   const params = useParams()
@@ -99,10 +100,38 @@ export default function CardDetailPage() {
               </div>
             )}
 
-            {/* Text */}
-            <div className="bg-panel border border-white/5 rounded-lg p-4">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Card Text</div>
-              <p className="text-sm leading-relaxed">{card.text}</p>
+            {/* Text + flavor + keywords */}
+            <div className="bg-panel border border-white/5 rounded-lg p-4 space-y-3">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">Card Text</div>
+              {card.text ? (
+                <div className="text-sm">
+                  <RulesText text={card.text} />
+                </div>
+              ) : (
+                <p className="text-sm text-muted-foreground italic">Oracle text tidak tersedia untuk kartu ini.</p>
+              )}
+              {card.keywords && card.keywords.length > 0 && (
+                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
+                  {card.keywords.map((k, i) => (
+                    <span key={i} className="px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider bg-rift/10 text-rift rounded border border-rift/30">
+                      {k}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {card.flavorText && (
+                <div className="pt-2 border-t border-white/5">
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">Flavor</div>
+                  <p className="text-sm italic text-muted-foreground">&ldquo;{card.flavorText}&rdquo;</p>
+                </div>
+              )}
+              {card.artist && (
+                <div className="pt-2 border-t border-white/5 flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <Palette className="w-3.5 h-3.5 text-rift" />
+                  <span>Artist:</span>
+                  <span className="text-white">{card.artist}</span>
+                </div>
+              )}
             </div>
 
             <PriceChart data={card.priceHistory} />
