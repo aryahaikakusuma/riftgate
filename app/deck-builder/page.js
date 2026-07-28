@@ -100,7 +100,14 @@ export default function DeckBuilderPage() {
               <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
                 {legendCards.map(c => (
                   <button key={c.id} onClick={() => setLegend(c.id)} className={`relative rounded-lg overflow-hidden border-2 transition ${deck.legend === c.id ? 'border-rift glow-orange' : 'border-white/10 hover:border-white/30'}`}>
-                    <div className="aspect-[5/7]"><CardArt card={c} /></div>
+                    <div className="aspect-[5/7] bg-black">
+                      {c.image ? (
+                        /* eslint-disable-next-line @next/next/no-img-element */
+                        <img src={c.image} alt={c.name} loading="lazy" className="w-full h-full object-cover" />
+                      ) : (
+                        <CardArt card={c} />
+                      )}
+                    </div>
                     <div className="px-2 py-1.5 text-[11px] font-semibold text-center truncate bg-panel">{c.legend || c.name}</div>
                   </button>
                 ))}
@@ -126,8 +133,13 @@ export default function DeckBuilderPage() {
                   const owned = deck.cards[c.id] || 0
                   return (
                     <button key={c.id} onClick={() => addCard(c.id)} className="relative group text-left">
-                      <div className="aspect-[5/7] rounded-md overflow-hidden border border-white/10 group-hover:border-rift transition">
-                        <CardArt card={c} />
+                      <div className="aspect-[5/7] rounded-md overflow-hidden border border-white/10 group-hover:border-rift transition bg-black">
+                        {c.image ? (
+                          /* eslint-disable-next-line @next/next/no-img-element */
+                          <img src={c.image} alt={c.name} loading="lazy" className="w-full h-full object-cover" />
+                        ) : (
+                          <CardArt card={c} />
+                        )}
                       </div>
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition rounded-md grid place-items-center opacity-0 group-hover:opacity-100">
                         <div className="px-3 py-1 bg-rift text-white rounded-md font-bold text-xs flex items-center gap-1"><Plus className="w-3 h-3" />Tambah</div>
@@ -158,7 +170,14 @@ export default function DeckBuilderPage() {
 
               {legendCard ? (
                 <div className="p-3 border-b border-white/5 flex items-center gap-3">
-                  <div className="w-14 aspect-[5/7] rounded overflow-hidden shrink-0"><CardArt card={legendCard} /></div>
+                  <div className="w-14 aspect-[5/7] rounded overflow-hidden shrink-0 bg-black">
+                    {legendCard.image ? (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img src={legendCard.image} alt={legendCard.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <CardArt card={legendCard} />
+                    )}
+                  </div>
                   <div className="min-w-0 flex-1">
                     <div className="text-[10px] uppercase tracking-wider text-rift font-bold">Legend</div>
                     <div className="font-bold truncate">{legendCard.name}</div>

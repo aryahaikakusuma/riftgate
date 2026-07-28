@@ -55,10 +55,15 @@ export default function CardDetailPage() {
         </Link>
 
         <div className="grid lg:grid-cols-[minmax(0,400px)_1fr] gap-8">
-          {/* Big card art */}
+          {/* Big card art — real image from RiftScribe CDN */}
           <div className="space-y-4">
-            <div className="aspect-[5/7] rounded-xl overflow-hidden ring-2 glow-orange" style={{ '--tw-ring-color': domain?.color }}>
-              <CardArt card={card} />
+            <div className="aspect-[5/7] rounded-xl overflow-hidden ring-2 glow-orange bg-black" style={{ '--tw-ring-color': domain?.color }}>
+              {card.imageLarge ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img src={card.imageLarge} alt={card.name} className="w-full h-full object-cover" />
+              ) : (
+                <CardArt card={card} />
+              )}
             </div>
             <div className="bg-panel border border-white/5 rounded-lg p-4">
               <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Koleksimu</div>

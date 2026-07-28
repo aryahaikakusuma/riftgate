@@ -10,7 +10,7 @@ const SLIDES = [
     tag: 'Set Baru',
     title: 'Spiritforged',
     subtitle: 'Ekspansi kedua Riftbound. 240 kartu, mekanik Spirit baru, dan 6 champion legendary siap diadu.',
-    cta: { label: 'Jelajahi Spiritforged', href: '/sets/SPF' },
+    cta: { label: 'Jelajahi Spiritforged', href: '/sets/SFD' },
   },
   {
     img: 'https://images.unsplash.com/photo-1514922121266-75835418bbf1?crop=entropy&cs=srgb&fm=jpg&w=1600&q=80',
@@ -22,9 +22,9 @@ const SLIDES = [
   {
     img: 'https://images.unsplash.com/photo-1600081728723-c8aa2ee3236a?crop=entropy&cs=srgb&fm=jpg&w=1600&q=80',
     tag: 'Price Watch',
-    title: 'Jhin, Virtuoso ↑ 22%',
-    subtitle: 'Harga mythic Origins melesat setelah rotasi banlist. Kunci sekarang atau tunggu koreksi.',
-    cta: { label: 'Detail Kartu', href: '/cards/OGN-003' },
+    title: 'Origins Mythics Soaring',
+    subtitle: 'Harga kartu Showcase Origins melesat setelah rotasi banlist. Kunci sekarang atau tunggu koreksi.',
+    cta: { label: 'Cek Origins', href: '/sets/OGN' },
   },
 ]
 
