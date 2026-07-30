@@ -48,8 +48,8 @@ export default function DeckBuilderPage() {
   const addCard = (id) => {
     setDeck(d => {
       const cur = d.cards[id] || 0
-      if (cur >= 3) { toast.error('Maks 3 kartu per jenis'); return d }
-      if (totalCards >= DECK_TARGET) { toast.error('Deck sudah 40 kartu'); return d }
+      if (cur >= 3) { toast.error('Max 3 copies per card'); return d }
+      if (totalCards >= DECK_TARGET) { toast.error('Deck already has 40 cards'); return d }
       return { ...d, cards: { ...d.cards, [id]: cur + 1 } }
     })
   }
@@ -69,7 +69,7 @@ export default function DeckBuilderPage() {
     lines.push(`# Main Deck (${totalCards}/${DECK_TARGET})`)
     deckCards.forEach(x => lines.push(`${x.qty}x ${x.card.name} [${x.card.setId}]`))
     navigator.clipboard.writeText(lines.join('\n'))
-    toast.success('Deck list disalin ke clipboard!')
+    toast.success('Deck list copied to clipboard!')
   }
 
   return (
@@ -83,7 +83,7 @@ export default function DeckBuilderPage() {
               <div className="text-xs uppercase tracking-widest text-rift font-bold">Exclusive Feature</div>
             </div>
             <h1 className="text-3xl font-black tracking-tight">Deck <span className="text-rift">Builder</span></h1>
-            <p className="text-sm text-muted-foreground">Pilih Legend, susun 40 kartu utama. Rakitan tersimpan lokal.</p>
+            <p className="text-sm text-muted-foreground">Pick a Legend, assemble your 40 main deck cards. Your build is saved locally.</p>
           </div>
           <div className="flex gap-2">
             <button onClick={resetDeck} className="flex items-center gap-1.5 px-3 py-2 text-sm border border-white/10 rounded-md hover:border-rift"><RotateCcw className="w-4 h-4" />Reset</button>
@@ -96,7 +96,7 @@ export default function DeckBuilderPage() {
           <div>
             {/* Legend picker */}
             <div className="mb-6">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">1. Pilih Legend</div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">1. Pick a Legend</div>
               <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
                 {legendCards.map(c => (
                   <button key={c.id} onClick={() => setLegend(c.id)} className={`relative rounded-lg overflow-hidden border-2 transition ${deck.legend === c.id ? 'border-rift glow-orange' : 'border-white/10 hover:border-white/30'}`}>
@@ -116,14 +116,14 @@ export default function DeckBuilderPage() {
 
             {/* Card selection */}
             <div className="mb-3">
-              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">2. Tambah kartu (klik untuk +1)</div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">2. Add cards (click to +1)</div>
               <div className="flex gap-2 mb-3 flex-wrap">
                 <div className="relative flex-1 min-w-[200px]">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                  <input value={q} onChange={e => setQ(e.target.value)} placeholder="Cari kartu…" className="w-full pl-9 pr-3 py-2 bg-panel border border-white/10 rounded-md text-sm focus:border-rift focus:outline-none" />
+                  <input value={q} onChange={e => setQ(e.target.value)} placeholder="Search cards…" className="w-full pl-9 pr-3 py-2 bg-panel border border-white/10 rounded-md text-sm focus:border-rift focus:outline-none" />
                 </div>
                 <select value={domainFilter} onChange={e => setDomainFilter(e.target.value)} className="bg-panel border border-white/10 rounded-md px-3 py-2 text-sm focus:border-rift focus:outline-none">
-                  <option value="all">Semua Domain</option>
+                  <option value="all">All Domains</option>
                   {DOMAINS.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
                 </select>
               </div>
@@ -142,7 +142,7 @@ export default function DeckBuilderPage() {
                         )}
                       </div>
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition rounded-md grid place-items-center opacity-0 group-hover:opacity-100">
-                        <div className="px-3 py-1 bg-rift text-white rounded-md font-bold text-xs flex items-center gap-1"><Plus className="w-3 h-3" />Tambah</div>
+                        <div className="px-3 py-1 bg-rift text-white rounded-md font-bold text-xs flex items-center gap-1"><Plus className="w-3 h-3" />Add</div>
                       </div>
                       {owned > 0 && (
                         <div className="absolute top-1 right-1 w-6 h-6 rounded-full bg-rift text-white text-xs font-bold grid place-items-center border-2 border-black">{owned}</div>
@@ -185,7 +185,7 @@ export default function DeckBuilderPage() {
                   <button onClick={() => setLegend(null)} className="text-muted-foreground hover:text-red-400"><X className="w-4 h-4" /></button>
                 </div>
               ) : (
-                <div className="p-4 border-b border-white/5 text-sm text-muted-foreground text-center">Pilih Legend di panel kiri</div>
+                <div className="p-4 border-b border-white/5 text-sm text-muted-foreground text-center">Pick a Legend on the left panel</div>
               )}
 
               {/* Domain spread */}
@@ -204,7 +204,7 @@ export default function DeckBuilderPage() {
 
               <div className="max-h-[50vh] overflow-y-auto">
                 {deckCards.length === 0 && (
-                  <div className="p-6 text-center text-sm text-muted-foreground">Deck kosong. Klik kartu di kiri untuk tambah.</div>
+                  <div className="p-6 text-center text-sm text-muted-foreground">Deck is empty. Click a card on the left to add it.</div>
                 )}
                 {deckCards.map(({ card, qty }) => {
                   const d = DOMAINS.find(x => x.id === card.domain)

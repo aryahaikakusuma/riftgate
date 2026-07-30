@@ -17,6 +17,10 @@ module.exports = {
         }
       },
       extend: {
+        fontFamily: {
+          display: ['var(--font-cinzel)', 'Cinzel', 'serif'],
+          sans: ['var(--font-poppins)', 'Poppins', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        },
         colors: {
           border: 'hsl(var(--border))',
           input: 'hsl(var(--input))',

@@ -26,7 +26,7 @@ export default function FilterSidebar({ filters, setFilters }) {
           <input
             value={filters.q}
             onChange={e => setFilters({ ...filters, q: e.target.value })}
-            placeholder="Cari nama kartu…"
+            placeholder="Search card name…"
             className="w-full pl-9 pr-3 py-2 bg-panel border border-white/10 rounded-md text-sm focus:outline-none focus:border-rift transition"
           />
         </div>
@@ -62,7 +62,7 @@ export default function FilterSidebar({ filters, setFilters }) {
         ))}
       </Section>
 
-      <Section title="Tipe Kartu">
+      <Section title="Card Type">
         {CARD_TYPES.map(t => (
           <Chk key={t} label={t} checked={filters.types.includes(t)} onChange={() => setFilters({ ...filters, types: toggle(filters.types, t) })} />
         ))}

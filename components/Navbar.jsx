@@ -19,20 +19,10 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-background/80 backdrop-blur-md">
-      <div className="container flex h-16 items-center justify-between px-4">
+      <div className="container flex h-32 items-center justify-between px-[24px]">
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative w-8 h-8 rounded-md bg-gradient-rift grid place-items-center glow-orange">
-              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="white" strokeWidth="2.2">
-                <path d="M12 2 L22 8 L18 20 L6 20 L2 8 Z" />
-                <path d="M12 8 L12 16" />
-                <path d="M8 12 L16 12" />
-              </svg>
-            </div>
-            <div className="leading-tight">
-              <div className="font-black text-lg tracking-tight">RIFT<span className="text-rift">GATE</span></div>
-              <div className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground -mt-0.5">Riftbound TCG</div>
-            </div>
+          <Link href="/" className="flex items-center group">
+            <img src="/logo.png" alt="Riftgate" className="h-28 w-auto object-contain" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -59,7 +49,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <Link href="/search" className="flex items-center gap-2 px-3 py-2 rounded-md bg-panel border border-white/5 text-sm text-muted-foreground hover:border-rift transition-colors min-w-[220px]">
             <Search className="w-4 h-4" />
-            <span>Cari kartu, champion, set…</span>
+            <span>Search cards, champions, sets…</span>
           </Link>
           <Link href="/deck-builder" className="px-4 py-2 rounded-md bg-rift text-white font-semibold text-sm hover:opacity-90 transition">
             Build Deck

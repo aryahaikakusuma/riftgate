@@ -1,7 +1,7 @@
 'use client'
 import CardThumbnail from './CardThumbnail'
 
-export default function CardGrid({ cards, empty = 'Tidak ada kartu ditemukan.' }) {
+export default function CardGrid({ cards, empty = 'No cards found.' }) {
   if (!cards || cards.length === 0) {
     return (
       <div className="text-center py-24 text-muted-foreground">

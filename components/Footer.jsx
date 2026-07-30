@@ -6,15 +6,10 @@ export default function Footer() {
     <footer className="border-t border-white/5 bg-panel mt-24">
       <div className="container px-4 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
         <div className="col-span-2">
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-8 h-8 rounded-md bg-gradient-rift grid place-items-center">
-              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="white" strokeWidth="2.2">
-                <path d="M12 2 L22 8 L18 20 L6 20 L2 8 Z" /><path d="M12 8 L12 16" /><path d="M8 12 L16 12" />
-              </svg>
-            </div>
-            <div className="font-black tracking-tight text-lg">RIFT<span className="text-rift">GATE</span></div>
+          <div className="flex items-center mb-3">
+            <img src="/logo.png" alt="Riftgate" className="h-14 w-auto object-contain" />
           </div>
-          <p className="text-sm text-muted-foreground max-w-md">Marketplace, price tracker, dan deck builder untuk Riftbound TCG. Data harga dari komunitas & marketplace terkemuka.</p>
+          <p className="text-sm text-muted-foreground max-w-md">Marketplace, price tracker, and deck builder for Riftbound TCG. Price data sourced from the community and leading marketplaces.</p>
           <div className="flex items-center gap-3 mt-4">
             {[Twitter, Youtube, Twitch, Github].map((Icon, i) => (
               <a key={i} href="#" className="w-8 h-8 grid place-items-center rounded-md bg-panel-hi text-muted-foreground hover:text-rift hover:border hover:border-rift transition">
@@ -44,8 +39,8 @@ export default function Footer() {
       </div>
       <div className="border-t border-white/5">
         <div className="container px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
-          <div>© 2026 Riftgate. Fan-made marketplace. Bukan afiliasi resmi Riot Games.</div>
-          <div>Riftbound TCG, League of Legends, dan aset-aset terkait adalah properti Riot Games, Inc.</div>
+          <div>© 2026 Riftgate. Fan-made marketplace. Not officially affiliated with Riot Games.</div>
+          <div>Riftbound TCG, League of Legends, and related assets are the property of Riot Games, Inc.</div>
         </div>
       </div>
     </footer>

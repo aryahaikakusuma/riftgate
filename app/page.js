@@ -22,8 +22,7 @@ export default function HomePage() {
         <section id="deals">
           <SectionHeader
             icon={<Flame className="w-5 h-5 text-rift" />}
-            title="Deals — Turun Harga Hari Ini"
-            sub="Kartu yang harganya lagi drop. Buruan sebelum naik lagi."
+            title="Deals — Price Drops Today"
             href="/search"
           />
           <HorizontalCards cards={deals} />
@@ -34,23 +33,23 @@ export default function HomePage() {
           <FeatureCard
             icon={<Hammer className="w-6 h-6" />}
             title="Deck Builder"
-            body="Rakit deck dari koleksimu. Pilih Legend, susun 40 kartu, export list ke turnamen."
-            cta="Mulai Build"
+            body="Build a deck from your collection. Pick a Legend, assemble 40 cards, and export the list for tournaments."
+            cta="Start Building"
             href="/deck-builder"
             primary
           />
           <FeatureCard
             icon={<TrendingUp className="w-6 h-6" />}
             title="Price Radar"
-            body="Chart 60 hari, alert perubahan harga, dan estimasi total value koleksi otomatis."
-            cta="Cek Harga"
+            body="60-day price charts, price change alerts, and automatic collection value estimates."
+            cta="Check Prices"
             href="/search"
           />
           <FeatureCard
             icon={<Trophy className="w-6 h-6" />}
             title="Collection Tracker"
-            body="Simpan kartu yang kamu punya, lihat progress checklist per set, ekspor CSV."
-            cta="Buka Collection"
+            body="Save the cards you own, track completion progress per set, and export to CSV."
+            cta="Open Collection"
             href="/collect"
           />
         </section>
@@ -60,7 +59,6 @@ export default function HomePage() {
           <SectionHeader
             icon={<Zap className="w-5 h-5 text-rift" />}
             title="Trending — Meta Watch"
-            sub="Kartu yang lagi banyak dipakai di turnamen minggu ini."
             href="/search"
           />
           <HorizontalCards cards={trending} />
@@ -70,8 +68,7 @@ export default function HomePage() {
         <section>
           <SectionHeader
             icon={<Trophy className="w-5 h-5 text-rift" />}
-            title="Semua Set Riftbound"
-            sub="Dari Origins sampai Vendetta."
+            title="All Riftbound Sets"
             href="/sets"
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -93,7 +90,7 @@ function SectionHeader({ icon, title, sub, href }) {
       </div>
       {href && (
         <Link href={href} className="hidden md:inline-flex items-center gap-1 text-sm text-rift font-semibold hover:underline">
-          Lihat semua <ChevronRight className="w-4 h-4" />
+          View all <ChevronRight className="w-4 h-4" />
         </Link>
       )}
     </div>

@@ -39,7 +39,7 @@ export default function SearchPage() {
       <main className="container px-4 py-8">
         <div className="mb-6">
           <h1 className="text-3xl font-black tracking-tight">Search <span className="text-rift">Cards</span></h1>
-          <p className="text-sm text-muted-foreground">Cari di antara {CARDS.length} kartu dari semua set Riftbound.</p>
+          <p className="text-sm text-muted-foreground">Search among {CARDS.length} cards from all Riftbound sets.</p>
         </div>
 
         <div className="flex items-center justify-between mb-4 lg:hidden">
@@ -54,11 +54,11 @@ export default function SearchPage() {
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between mb-4">
-              <div className="text-sm text-muted-foreground">{total} hasil</div>
+              <div className="text-sm text-muted-foreground">{total} results</div>
               <select value={sort} onChange={e => setSort(e.target.value)} className="bg-panel border border-white/10 rounded-md px-3 py-1.5 text-sm focus:border-rift focus:outline-none">
-                <option value="name">Sort: Nama A-Z</option>
-                <option value="price-desc">Harga Tertinggi</option>
-                <option value="price-asc">Harga Terendah</option>
+                <option value="name">Sort: Name A-Z</option>
+                <option value="price-desc">Highest Price</option>
+                <option value="price-asc">Lowest Price</option>
               </select>
             </div>
             <CardGrid cards={paged} />

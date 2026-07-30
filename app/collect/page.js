@@ -32,7 +32,7 @@ export default function CollectPage() {
     if (next === 0) { const c = { ...col }; delete c[id]; setCol(c) }
   }
   const removeAll = () => {
-    if (!confirm('Hapus seluruh koleksi?')) return
+    if (!confirm('Clear your entire collection?')) return
     localStorage.removeItem('riftgate.collection.v1')
     setCol({})
   }
@@ -44,34 +44,34 @@ export default function CollectPage() {
         <div className="flex items-start justify-between mb-6 flex-wrap gap-4">
           <div>
             <h1 className="text-3xl font-black tracking-tight">My <span className="text-rift">Collection</span></h1>
-            <p className="text-sm text-muted-foreground">Kartu yang kamu miliki (tersimpan lokal di browser).</p>
+            <p className="text-sm text-muted-foreground">Cards you own (saved locally in your browser).</p>
           </div>
           {owned.length > 0 && (
             <button onClick={removeAll} className="flex items-center gap-1.5 px-3 py-2 text-sm text-red-400 border border-red-400/30 rounded-md hover:bg-red-500/10">
-              <Trash2 className="w-4 h-4" /> Hapus semua
+              <Trash2 className="w-4 h-4" /> Clear all
             </button>
           )}
         </div>
 
         <div className="grid grid-cols-3 gap-3 md:gap-4 mb-8">
-          <StatCard icon={<Layers />} label="Kartu Unik" value={uniqueCount} />
-          <StatCard icon={<Trophy />} label="Total Kartu" value={totalQty} />
+          <StatCard icon={<Layers />} label="Unique Cards" value={uniqueCount} />
+          <StatCard icon={<Trophy />} label="Total Cards" value={totalQty} />
           <StatCard icon={<DollarSign />} label="Est. Value" value={`$${totalValue.toFixed(2)}`} highlight />
         </div>
 
         {ready && owned.length === 0 && (
           <div className="text-center py-24 bg-panel rounded-xl border border-white/5">
             <div className="text-4xl mb-2">📜</div>
-            <div className="text-lg font-bold">Koleksimu masih kosong</div>
-            <p className="text-sm text-muted-foreground mt-1">Cari kartu dan tambahkan ke koleksi.</p>
-            <Link href="/search" className="inline-flex mt-4 px-4 py-2 bg-rift text-white rounded-md font-semibold text-sm">Mulai cari kartu</Link>
+            <div className="text-lg font-bold">Your collection is empty</div>
+            <p className="text-sm text-muted-foreground mt-1">Search for cards and add them to your collection.</p>
+            <Link href="/search" className="inline-flex mt-4 px-4 py-2 bg-rift text-white rounded-md font-semibold text-sm">Start searching</Link>
           </div>
         )}
 
         {owned.length > 0 && (
           <>
             <div className="flex flex-wrap gap-2 mb-6">
-              <FBtn active={filterSet === 'all'} onClick={() => setFilterSet('all')}>Semua Set ({owned.length})</FBtn>
+              <FBtn active={filterSet === 'all'} onClick={() => setFilterSet('all')}>All Sets ({owned.length})</FBtn>
               {SETS.map(s => {
                 const n = owned.filter(c => c.setId === s.id).length
                 if (!n) return null

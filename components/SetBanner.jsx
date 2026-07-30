@@ -11,7 +11,7 @@ export default function SetBanner({ set }) {
         <div className="relative h-full p-6 flex flex-col justify-between">
           <div className="flex items-start justify-between">
             <div className="text-[10px] tracking-[0.3em] uppercase font-bold px-2 py-1 bg-black/60 backdrop-blur rounded">{set.code}</div>
-            <div className="text-xs text-white/80 bg-black/40 px-2 py-1 rounded backdrop-blur">{set.totalCards} kartu</div>
+            <div className="text-xs text-white/80 bg-black/40 px-2 py-1 rounded backdrop-blur">{set.totalCards} cards</div>
           </div>
           <div>
             <h3 className="text-2xl md:text-3xl font-black tracking-tight text-white text-glow-orange">{set.name}</h3>

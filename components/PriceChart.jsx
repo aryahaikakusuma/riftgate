@@ -11,7 +11,7 @@ export default function PriceChart({ data }) {
     <div className="bg-panel rounded-xl border border-white/5 p-4">
       <div className="flex items-baseline justify-between mb-4">
         <div>
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">Harga 60 Hari</div>
+          <div className="text-xs uppercase tracking-wider text-muted-foreground">60-Day Price</div>
           <div className="text-2xl font-black text-rift">${last.toFixed(2)}</div>
         </div>
         <div className={`text-sm font-bold ${change >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>

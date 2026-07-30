@@ -7,24 +7,24 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 const SLIDES = [
   {
     img: 'https://images.unsplash.com/photo-1773216344170-7fca0c1f83ea?crop=entropy&cs=srgb&fm=jpg&w=1600&q=80',
-    tag: 'Set Baru',
+    tag: 'New Set',
     title: 'Spiritforged',
-    subtitle: 'Ekspansi kedua Riftbound. 240 kartu, mekanik Spirit baru, dan 6 champion legendary siap diadu.',
-    cta: { label: 'Jelajahi Spiritforged', href: '/sets/SFD' },
+    subtitle: 'Riftbound\'s second expansion. 240 cards, a new Spirit mechanic, and 6 legendary champions ready to battle.',
+    cta: { label: 'Explore Spiritforged', href: '/sets/SFD' },
   },
   {
     img: 'https://images.unsplash.com/photo-1514922121266-75835418bbf1?crop=entropy&cs=srgb&fm=jpg&w=1600&q=80',
     tag: 'Meta Report',
     title: 'Fury Dominates',
-    subtitle: 'Rune Fury naik 34% di top 8 turnamen minggu ini. Cek deck list Zed & Darius yang lagi tren.',
-    cta: { label: 'Lihat Deck', href: '/deck-builder' },
+    subtitle: 'Rune Fury is up 34% in top 8 tournaments this week. Check out the trending Zed & Darius deck lists.',
+    cta: { label: 'View Decks', href: '/deck-builder' },
   },
   {
     img: 'https://images.unsplash.com/photo-1600081728723-c8aa2ee3236a?crop=entropy&cs=srgb&fm=jpg&w=1600&q=80',
     tag: 'Price Watch',
     title: 'Origins Mythics Soaring',
-    subtitle: 'Harga kartu Showcase Origins melesat setelah rotasi banlist. Kunci sekarang atau tunggu koreksi.',
-    cta: { label: 'Cek Origins', href: '/sets/OGN' },
+    subtitle: 'Origins Showcase card prices are soaring after the banlist rotation. Lock in now or wait for a correction.',
+    cta: { label: 'Check Origins', href: '/sets/OGN' },
   },
 ]
 
